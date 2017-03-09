@@ -24,6 +24,12 @@ import PerfectHTTP
 import PerfectHTTPServer
 import PerfectSession
 import PerfectSessionRedis
+import PerfectRedis
+
+
+RedisSessionConnector.host = "127.0.0.1"
+RedisSessionConnector.password = ""
+RedisSessionConnector.port = redisDefaultPort
 
 let server = HTTPServer()
 
