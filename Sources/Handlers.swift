@@ -10,17 +10,12 @@
 import PerfectLib
 import PerfectHTTP
 import PerfectSession
-import TurnstileCrypto
 
 public class WebHandlers {
 	/* =================================================================================================================
 	Index
 	================================================================================================================= */
 	open static func indexHandlerGet(request: HTTPRequest, _ response: HTTPResponse) {
-
-		let rand = URandom()
-
-		request.session?.data[rand.secureToken] = rand.secureToken
 
 		var dump = ""
 		do {
@@ -46,15 +41,11 @@ public class WebHandlers {
 	================================================================================================================= */
 	open static func indexHandlerGetJSON(request: HTTPRequest, _ response: HTTPResponse) {
 
-		let rand = URandom()
-
-		request.session?.data[rand.secureToken] = rand.secureToken
-
 		var opt = [String: Any]()
 		opt["sessionid"] = request.session?.token
 		opt["dump"] = request.session?.data
 
-		try? response.setBody(json: opt)
+		_ = try? response.setBody(json: opt)
 		response.completed()
 		
 		
