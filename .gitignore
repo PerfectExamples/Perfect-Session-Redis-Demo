@@ -68,3 +68,7 @@ buildlinux
 Package.swift.orig
 .build_lin
 .packages_lin
+Package.pins
+Package.resolved
+PADockerfile_build
+perfect-session-redis-demo.service
